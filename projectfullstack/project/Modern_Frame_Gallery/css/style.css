@@ -1,0 +1,739 @@
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: #fafafa;
+    color: #333;
+    background-image: url('https://picsum.photos/1920/1080?random=bg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+.main-header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 3px solid #2c3e50;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Styles */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0;
+}
+
+.main-nav li {
+    display: inline-block;
+}
+
+.main-nav a {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    margin: 0 2px;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background-color: #3498db;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* Main Content */
+main {
+    margin-top: 80px;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    min-height: calc(100vh - 80px);
+}
+
+/* Hero Section */
+.hero {
+    height: 60vh;
+    background: linear-gradient(45deg, #3498db, #2c3e50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    color: white;
+    max-width: 800px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+/* Featured Badge */
+.featured-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transform: rotate(15deg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+}
+
+/* Open House Banner Animation */
+.open-house-banner {
+    background-color: #f39c12;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: inline-block;
+    animation: blink 3s infinite;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; transform: scale(1); }
+    25% { opacity: 0.7; transform: scale(1.05); }
+    75% { opacity: 0.9; transform: scale(0.98); }
+}
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+    color: white;
+    padding: 80px 0 40px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Featured Artwork Section */
+.featured-artwork {
+    padding: 80px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.featured-artwork h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.featured-grid {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.artwork-feature {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artwork-feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.artwork-feature img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.artwork-feature:hover img {
+    transform: scale(1.05);
+}
+
+.artwork-info {
+    padding: 30px;
+}
+
+.artwork-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.artist {
+    color: #3498db;
+    font-style: italic;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.description {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    padding: 60px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.artwork-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.artwork-item {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.artwork-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.artwork-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.artwork-item:hover .artwork-image img {
+    transform: scale(1.05);
+}
+
+.artwork-details {
+    padding: 25px;
+}
+
+.artwork-details h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.medium {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+/* About Page Styles */
+.about-content {
+    padding: 60px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.gallery-history {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+    align-items: flex-start;
+}
+
+.history-image {
+    float: left;
+    margin: 0 30px 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.history-image:hover {
+    transform: scale(1.05);
+}
+
+.history-text h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+blockquote {
+    background-color: #ecf0f1;
+    border-left: 5px solid #3498db;
+    padding: 20px;
+    margin: 30px 0;
+    font-style: italic;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+cite {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #3498db;
+}
+
+/* Lists Styling */
+.artist-list,
+.staff-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.artist-list li,
+.staff-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid #ecf0f1;
+    position: relative;
+    padding-left: 25px;
+}
+
+.artist-list li::before,
+.staff-list li::before {
+    content: "▶";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+}
+
+.timeline-list {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: timeline;
+}
+
+.timeline-list li {
+    padding: 15px 0;
+    border-left: 3px solid #3498db;
+    padding-left: 30px;
+    margin-left: 20px;
+    position: relative;
+    counter-increment: timeline;
+}
+
+.timeline-list li::before {
+    content: counter(timeline);
+    position: absolute;
+    left: -15px;
+    top: 15px;
+    background-color: #3498db;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+/* Section Styling */
+.notable-artists,
+.exhibition-timeline,
+.gallery-staff {
+    margin-bottom: 50px;
+}
+
+.notable-artists h2,
+.exhibition-timeline h2,
+.gallery-staff h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Contact Page Styles */
+.contact-info {
+    padding: 60px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-grid {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.contact-details {
+    flex: 1;
+}
+
+.gallery-image {
+    flex: 1;
+    text-align: center;
+}
+
+.gallery-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-image img:hover {
+    transform: scale(1.02);
+}
+
+.image-caption {
+    margin-top: 15px;
+    color: #666;
+    font-style: italic;
+}
+
+.info-item {
+    margin-bottom: 30px;
+}
+
+.info-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Table Styles */
+.hours-section {
+    padding: 60px 0;
+    background-color: rgba(244, 244, 244, 0.9);
+}
+
+.hours-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+.hours-table {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hours-table th {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hours-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.hours-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.hours-table tr.weekend {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.hours-table tr:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+.hours-note {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.hours-note h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-size: 1.3rem;
+}
+
+/* Visit Info Section */
+.visit-info {
+    padding: 60px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.visit-info h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+.visit-grid {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.visit-item {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    transition: transform 0.3s ease;
+}
+
+.visit-item:hover {
+    transform: translateY(-5px);
+}
+
+.visit-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Upcoming Exhibition */
+.upcoming-exhibition {
+    padding: 80px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.upcoming-exhibition h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.exhibition-highlight {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.exhibition-highlight img {
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.exhibition-highlight img:hover {
+    transform: scale(1.05);
+}
+
+.exhibition-details h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.virtual-tour-link {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.virtual-tour-link:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Gallery Video Section */
+.gallery-video {
+    padding: 80px 0;
+    background-color: rgba(244, 244, 244, 0.9);
+    text-align: center;
+}
+
+.gallery-video h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+.gallery-video video {
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer */
+.main-footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.main-footer p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* Color Variations Examples */
+.color-examples {
+    /* Named colors */
+    background-color: lightblue;
+    
+    /* HEX colors */
+    border-color: #3498db;
+    
+    /* RGB colors */
+    box-shadow: 0 0 10px rgb(52, 152, 219);
+    
+    /* HSL colors */
+    color: hsl(204, 70%, 53%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+    }
+    
+    .main-nav ul {
+        margin-top: 15px;
+    }
+    
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    .featured-grid,
+    .artwork-grid,
+    .contact-grid,
+    .exhibition-highlight,
+    .visit-grid {
+        flex-direction: column;
+    }
+    
+    .artwork-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-history {
+        flex-direction: column;
+    }
+    
+    .history-image {
+        float: none;
+        margin: 0 0 20px 0;
+        width: 100%;
+    }
+}
