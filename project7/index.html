@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Code Breaker – The Array Heist</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <h1>💻 Code Breaker – The Array Heist</h1>
+  <div class="array" id="array"></div>
+
+  <div class="controls">
+    <input type="number" id="index" placeholder="Index" />
+    <input type="number" id="value" placeholder="Value" />
+    <button onclick="insert()">Insert</button>
+    <button onclick="remove()">Delete</button><br />
+    <input type="text" id="pattern" placeholder="Pattern e.g. 2,1,4" />
+    <button onclick="searchPattern()">Search</button>
+    <button onclick="resetArray()">Reset</button>
+  </div>
+
+  <p id="feedback"></p>
+
+  <script>
+    let arr = new Array(10).fill(null); // array with 10 slots
+    const arrayDiv = document.getElementById("array");
+    const feedback = document.getElementById("feedback");
+
+    function renderArray() {
+      arrayDiv.innerHTML = "";
+      arr.forEach((val) => {
+        const cell = document.createElement("div");
+        cell.className = "cell";
+        if (val !== null) cell.textContent = val;
+        arrayDiv.appendChild(cell);
+      });
+    }
+
+    function insert() {
+      const idx = parseInt(document.getElementById("index").value);
+      const val = parseInt(document.getElementById("value").value);
+      if (isNaN(idx) || isNaN(val) || idx < 0 || idx >= arr.length) {
+        feedback.textContent = "⚠️ Index out of bounds!";
+        return;
+      }
+      for (let i = arr.length - 1; i > idx; i--) {
+        arr[i] = arr[i - 1];
+      }
+      arr[idx] = val;
+      feedback.textContent = `✅ Inserted ${val} at index ${idx}`;
+      renderArray();
+    }
+
+    function remove() {
+      const idx = parseInt(document.getElementById("index").value);
+      if (isNaN(idx) || idx < 0 || idx >= arr.length) {
+        feedback.textContent = "⚠️ Index out of bounds!";
+        return;
+      }
+      for (let i = idx; i < arr.length - 1; i++) {
+        arr[i] = arr[i + 1];
+      }
+      arr[arr.length - 1] = null;
+      feedback.textContent = `🗑️ Deleted element at index ${idx}`;
+      renderArray();
+    }
+
+    async function searchPattern() {
+      const pat = document
+        .getElementById("pattern")
+        .value.split(",")
+        .map((x) => parseInt(x));
+      if (!pat.length || pat.some(isNaN)) {
+        feedback.textContent = "⚠️ Enter a valid pattern (e.g., 1,2,3)";
+        return;
+      }
+
+      for (let i = 0; i <= arr.length - pat.length; i++) {
+        const cells = document.querySelectorAll(".cell");
+        for (let j = 0; j < pat.length; j++) {
+          cells[i + j].classList.add("highlight");
+        }
+        await new Promise((r) => setTimeout(r, 500));
+        const segment = arr.slice(i, i + pat.length);
+        if (JSON.stringify(segment) === JSON.stringify(pat)) {
+          feedback.textContent = `🎉 Pattern [${pat}] found at index ${i}!`;
+          return;
+        }
+        cells.forEach((c) => c.classList.remove("highlight"));
+      }
+      feedback.textContent = "❌ Pattern not found.";
+    }
+
+    function resetArray() {
+      arr = new Array(10).fill(null);
+      feedback.textContent = "🔄 Array reset.";
+      renderArray();
+    }
+
+    // Initial render
+    renderArray();
+  </script>
+</body>
+</html>
